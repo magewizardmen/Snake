@@ -1,5 +1,10 @@
+Debug/*
+Snake/Debug/*
+
+
 *.filters
 *.vcxproj
 *.sln
+
 .git/*
 .vs/*
