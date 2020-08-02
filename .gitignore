@@ -1,0 +1,5 @@
+*.filters
+*.vcxproj
+*.sln
+.git/*
+.vs/*
