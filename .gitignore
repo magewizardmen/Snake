@@ -1,8 +1,6 @@
 Debug/*
 Snake/Debug/*
 
-Snake/main.cpp
-
 *.filters
 *.vcxproj
 *.sln

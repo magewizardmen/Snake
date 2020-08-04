@@ -16,6 +16,7 @@ int main() {
 		clear_scr(*field, copy_field);
 		draw_snake(s.move(), *field);
 		write_field(*field, field_size);
+		spawn_eat(copy_field, field_size);
 	}
 	return 0;
 }
