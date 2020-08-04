@@ -1,5 +1,7 @@
 #include "../headers/functions.h"
 
+const char snake_body = 'Z';
+
 std::unique_ptr<std::map<std::pair<int, int>, char>> create_field(int height, int width) {
 
 	const char border = 'B';
@@ -22,4 +24,8 @@ void write_field(const std::map<std::pair<int, int>, char>& field, int height, i
 		}
 		std::cout << std::endl;
 	}
+}
+
+void draw_snake(std::list<std::pair<int, int>>& body, std::map<std::pair<int, int>, char>& field) {
+	std::for_each(body.begin(), body.end(), [&](const std::pair<int, int>& key) {field.at(key) = 'Z';});
 }
