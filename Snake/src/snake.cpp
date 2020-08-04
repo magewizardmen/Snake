@@ -6,8 +6,7 @@ namespace {
 
 
 
-
-Snake::Snake(int x = 1, int y = 1, std::pair<int, int> direction = std::pair<int, int>(0, 1)) : body{ std::pair<int, int>(x, y) }, direction(direction) {}
+Snake::Snake(int x, int y, std::pair<int, int> direction) : body{ std::pair<int, int>(x, y) }, direction(direction) {}
 
 std::list<std::pair<int, int>> Snake::move() {
 

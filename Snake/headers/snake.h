@@ -10,7 +10,7 @@ class Snake {
 	std::pair<int, int> direction;
 
 public:
-	explicit Snake(int x, int y, std::pair<int, int> direction);
+	explicit Snake(int x = 1, int y = 1, std::pair<int, int> direction = std::pair<int, int>(0, 1));
 
 
 	std::list<std::pair<int, int>> move();
