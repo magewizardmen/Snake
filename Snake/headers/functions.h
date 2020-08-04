@@ -7,11 +7,13 @@
 #include <memory>
 #include <list>
 
-std::unique_ptr<std::map<std::pair<int, int>, char>> create_field(int, int);
+std::unique_ptr<std::map<std::pair<int, int>, char>> create_field(const std::pair<int, int>&);
 
-void write_field(const std::map<std::pair<int, int>, char>&, int, int);
+void write_field(const std::map<std::pair<int, int>, char>&, const std::pair<int, int>&);
 
-void draw_snake(std::list<std::pair<int, int>>&, std::map<std::pair<int, int>, char>&);
+void draw_snake(const std::list<std::pair<int, int>>&, std::map<std::pair<int, int>, char>&);
+
+void clear_scr(std::map<std::pair<int, int>, char>&, const std::map<std::pair<int, int>, char>&);
 
 
 #endif
