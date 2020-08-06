@@ -13,10 +13,6 @@ int main() {
 
 	Snake s;
 
-if (_kbhit()) 
-			if (_getch() == 224);
-
-
 	auto field = create_field(field_size);
 	auto copy_field = *field;
 
