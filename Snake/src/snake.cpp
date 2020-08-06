@@ -25,3 +25,4 @@ std::list<std::pair<int, int>> Snake::move() {
 int Snake::check(const std::map<std::pair<int, int>, char>& field) {
 	return field.at(*body.begin() + direction) == 'B' ? 0 : field.at(*body.begin() + direction) == ' ' ? 1 : 2;
 }
+

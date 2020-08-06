@@ -19,4 +19,6 @@ void clear_scr(std::map<std::pair<int, int>, char>&, const std::map<std::pair<in
 
 int spawn_eat(std::map<std::pair<int, int>, char>&, const std::pair<int, int>&);
 
+
+
 #endif
