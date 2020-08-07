@@ -5,28 +5,26 @@
 #include <algorithm>
 #include <map>
 
-
-
-#include <conio.h>
-#include <thread>
+#include "functions.h"
 
 class Snake {
 	std::list<std::pair<int, int>> body;
 	std::pair<int, int> direction;
 
-	void grow() {
-
-	}
 
 public:
 	explicit Snake(int x = 1, int y = 1, std::pair<int, int> direction = std::pair<int, int>(1, 0));
 
 
-	std::list<std::pair<int, int>> move();
+	const std::list<std::pair<int, int>> move();
 
-	int check(const std::map<std::pair<int, int>, char>& field);
+	const int check(const std::map<std::pair<int, int>, char>&) const;
 
-	friend void change_direction(Snake&);
+	const std::list<std::pair<int, int>> getBody() const;
+
+	void change_direction();
+
 };
 
 #endif 
+
