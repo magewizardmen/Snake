@@ -34,9 +34,8 @@ void redraw_scr(std::map<std::pair<int, int>, char>& field, const std::map<std::
 	setCarriagePos(0, 0);
 }
 
-const std::pair<int, int> spawn_eat(std::map<std::pair<int, int>, char>& field, const std::pair<int, int>& field_size) { 
-	static bool is_exist;
-	std::pair<int, int> pos;
+const std::pair<int, int> spawn_eat(std::map<std::pair<int, int>, char>& field, const std::pair<int, int>& field_size, bool& is_exist) { 
+	static std::pair<int, int> pos;
 
 	if (!is_exist) {
 		std::vector<std::pair<int, int>> possible_positions;
