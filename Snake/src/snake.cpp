@@ -8,17 +8,23 @@ namespace {
 
 Snake::Snake(int x, int y, std::pair<int, int> direction) : body{ std::pair<int, int>(x, y) }, direction(direction) {}
 
-const std::list<std::pair<int, int>> Snake::move() {
+const std::list<std::pair<int, int>> Snake::move(int check) {
 
 	auto it = body.begin();
 	auto end = --body.end();
-	while (it != end) {
-		auto current = it++;
-		*current = *it;
+
+	while (end != body.begin()) {
+		auto current = end--;
+		*current = *end;
 	}
-
-
+	
+	if (check == 2) {
+		body.push_back(*it);
+		*it = *it + direction;
+	}
+	else
 	*it = *it + direction;
+
 
 	return body;
 }
@@ -47,7 +53,5 @@ void Snake::change_direction() {
 }
 
 const std::list<std::pair<int, int>> Snake::getBody() const { return body; }
-//private
 
-void grow() {}
 

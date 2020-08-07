@@ -26,7 +26,7 @@ int main() {
 			is_exist = 0;
 		}
 		mySleep(150);
-		s.move();
+		s.move(s.check(*field));
 		draw_snake(s.getBody(), *field);
 
 		write_field(*field, field_size);

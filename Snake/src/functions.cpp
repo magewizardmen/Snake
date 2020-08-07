@@ -27,6 +27,7 @@ void write_field(const std::map<std::pair<int, int>, char>& field, const std::pa
 
 void draw_snake(const std::list<std::pair<int, int>>& body, std::map<std::pair<int, int>, char>& field) {
 	std::for_each(body.begin(), body.end(), [&](const std::pair<int, int>& key) {field.at(key) = 'Z';});
+	field.at(*body.begin()) = 'G';
 }
 
 void redraw_scr(std::map<std::pair<int, int>, char>& field, const std::map<std::pair<int, int>, char>& copy_field) {
