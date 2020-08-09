@@ -1,11 +1,11 @@
 #ifndef CONST_H
 #define CONST_H
 
-const char snake_body_char = 'z';
-const char snake_head_char = '@';
-const char border_field_char = 'B';
-const char eat_char = 'E';
-const char free_space_char = ' ';
+const char SNAKE_BODY_CHAR = 'z';
+const char SNAKE_HEAD_CHAR = '@';
+const char BORDER_FIELD_CHAR = 'B';
+const char EAT_CHAR = 'E';
+const char FREE_SPACE_CHAR = ' ';
 
 
 
@@ -15,10 +15,10 @@ const char free_space_char = ' ';
 
 namespace non_portable {
 
-	const int Left = 75;
-	const int Up = 72;
-	const int Right = 77;
-	const int Down = 80;
+	const int LEFT = 75;
+	const int UP = 72;
+	const int RIGHT = 77;
+	const int DOWN = 80;
 
 };
 #endif

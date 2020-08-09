@@ -1,6 +1,6 @@
 #include "../../../headers/non-portable.h"
 
 
-void mySleep(int time) {
-	Sleep(time);
+void mySleep(int timeMs) {
+	Sleep(timeMs);
 }

@@ -1,53 +1,53 @@
 #include "../headers/functions.h"
-#include "../Const.h"
+#include "../const.h"
 
 
-std::unique_ptr<std::map<std::pair<int, int>, char>> create_field(const std::pair<int, int>& field_size) {
+std::unique_ptr<std::map<std::pair<int, int>, char>> createField(const std::pair<int, int>& fieldSize) {
 
 	std::unique_ptr<std::map<std::pair<int, int>, char>> field = std::make_unique<std::map<std::pair<int, int>, char>>();
 
-	for (int i = 0; i < field_size.first; i++) 
-		for (int j = 0; j < field_size.second; j++)
-			field->insert(std::pair<std::pair<int,int>, char>(std::pair<int, int>(i, j), i == 0 ? border_field_char : i == field_size.first - 1 ? border_field_char : j == 0 ? border_field_char : j == field_size.second - 1 ? border_field_char : free_space_char));
+	for (int i = 0; i < fieldSize.first; i++) 
+		for (int j = 0; j < fieldSize.second; j++)
+			field->insert(std::pair<std::pair<int,int>, char>(std::pair<int, int>(i, j), i == 0 ? BORDER_FIELD_CHAR : i == fieldSize.first - 1 ? BORDER_FIELD_CHAR : j == 0 ? BORDER_FIELD_CHAR : j == fieldSize.second - 1 ? BORDER_FIELD_CHAR : FREE_SPACE_CHAR));
 	return field;
 }
 
-void write_field(const std::map<std::pair<int, int>, char>& field, const std::pair<int, int>& field_size) {
-	for (int i = 0; i < field_size.first;i++) {
-		for (int j = 0; j < field_size.second;j++) {
+void writeField(const std::map<std::pair<int, int>, char>& field, const std::pair<int, int>& fieldSize) {
+	for (int i = 0; i < fieldSize.first;i++) {
+		for (int j = 0; j < fieldSize.second;j++) {
 			std::cout << field.at(std::pair<int, int>(i, j));
 		}
 		std::cout << std::endl;
 	}
 }
 
-void draw_snake(const std::list<std::pair<int, int>>& body, std::map<std::pair<int, int>, char>& field) {
-	std::for_each(body.begin(), body.end(), [&](const std::pair<int, int>& key) {field.at(key) = snake_body_char;});
-	field.at(*body.begin()) = snake_head_char;
+void drawSnake(const std::list<std::pair<int, int>>& body, std::map<std::pair<int, int>, char>& field) {
+	std::for_each(body.begin(), body.end(), [&](const std::pair<int, int>& key) {field.at(key) = SNAKE_BODY_CHAR;});
+	field.at(*body.begin()) = SNAKE_HEAD_CHAR;
 }
 
-void redraw_scr(std::map<std::pair<int, int>, char>& field, const std::map<std::pair<int, int>, char>& copy_field) {
-	field = copy_field;
+void redrawScreen(std::map<std::pair<int, int>, char>& field, const std::map<std::pair<int, int>, char>& copyField) {
+	field = copyField;
 	setCarriagePos(0, 0);
 }
 
-const std::pair<int, int> spawn_eat(const std::map<std::pair<int, int>, char>& field, std::map<std::pair<int, int>, char>& copy_field, const std::pair<int, int>& field_size, bool& is_exist) {
+const std::pair<int, int> spawnEat(const std::map<std::pair<int, int>, char>& field, std::map<std::pair<int, int>, char>& copyField, const std::pair<int, int>& fieldSize, bool& isExist) {
 	static std::pair<int, int> pos;
 
-	if (!is_exist) {
+	if (!isExist) {
 		std::vector<std::pair<int, int>> possible_positions;
 
-		for (int i = 1; i < field_size.first - 1; i++)
-			for (int j = 1; j < field_size.second - 1; j++)
-				if ((copy_field.at(std::pair<int, int>(i, j)) == free_space_char)&&(field.at(std::pair<int, int>(i, j)) == free_space_char)) possible_positions.push_back(std::pair<int, int>(i, j));
+		for (int i = 1; i < fieldSize.first - 1; i++)
+			for (int j = 1; j < fieldSize.second - 1; j++)
+				if ((copyField.at(std::pair<int, int>(i, j)) == FREE_SPACE_CHAR)&&(field.at(std::pair<int, int>(i, j)) == FREE_SPACE_CHAR)) possible_positions.push_back(std::pair<int, int>(i, j));
 
 		//if (possible_positions.size() == 0) return 1;
 
 		pos = possible_positions[rand() % possible_positions.size()];
 
 		
-		copy_field.at(pos) = eat_char;
-		is_exist = 1;
+		copyField.at(pos) = EAT_CHAR;
+		isExist = 1;
 	}	
 	return pos;
 }

@@ -17,11 +17,11 @@ public:
 
 	const std::list<std::pair<int, int>> move(int);
 
-	const int check(const std::map<std::pair<int, int>, char>&) const;
+	const int checkCollisions(const std::map<std::pair<int, int>, char>&) const;
 
 	const std::list<std::pair<int, int>> getBody() const;
 
-	void change_direction();
+	void changeDirection();
 
 };
 

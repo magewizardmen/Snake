@@ -1,5 +1,5 @@
 #include "../headers/snake.h"
-#include "../Const.h"
+#include "../const.h"
 
 namespace {
 	std::pair<int, int> operator+(std::pair<int, int> a, std::pair<int, int> b) { return std::pair<int, int>(a.first + b.first, a.second + b.second); }
@@ -9,7 +9,7 @@ namespace {
 
 Snake::Snake(int x, int y, std::pair<int, int> direction) : body{ std::pair<int, int>(x, y) }, direction(direction) {}
 
-const std::list<std::pair<int, int>> Snake::move(int check) {
+const std::list<std::pair<int, int>> Snake::move(int checkCollisions) {
 
 	auto it = body.begin();
 	auto end = --body.end();
@@ -19,7 +19,7 @@ const std::list<std::pair<int, int>> Snake::move(int check) {
 		*current = *end;
 	}
 	
-	if (check == 2) {
+	if (checkCollisions == 2) {
 		body.push_back(*it);
 		*it = *it + direction;
 	}
@@ -30,16 +30,16 @@ const std::list<std::pair<int, int>> Snake::move(int check) {
 	return body;
 }
 
-const int Snake::check(const std::map<std::pair<int, int>, char>& field) const  {
-	return field.at(*body.begin() + direction) == free_space_char ? 1 : field.at(*body.begin() + direction) == eat_char ? 2 : 0;
+const int Snake::checkCollisions(const std::map<std::pair<int, int>, char>& field) const  {
+	return field.at(*body.begin() + direction) == FREE_SPACE_CHAR ? 1 : field.at(*body.begin() + direction) == EAT_CHAR ? 2 : 0;
 }
 
-void Snake::change_direction() {
+void Snake::changeDirection() {
 	enum {
-		Left = non_portable::Left,
-		Up = non_portable::Up,
-		Right = non_portable::Right,
-		Down = non_portable::Down
+		Left = non_portable::LEFT,
+		Up = non_portable::UP,
+		Right = non_portable::RIGHT,
+		Down = non_portable::DOWN
 	} Directions;
 
 	int c = getChar();

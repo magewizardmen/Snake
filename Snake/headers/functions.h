@@ -10,15 +10,15 @@
 
 #include"non-portable.h"
 
-std::unique_ptr<std::map<std::pair<int, int>, char>> create_field(const std::pair<int, int>&);
+std::unique_ptr<std::map<std::pair<int, int>, char>> createField(const std::pair<int, int>&);
 
-void write_field(const std::map<std::pair<int, int>, char>&, const std::pair<int, int>&);
+void writeField(const std::map<std::pair<int, int>, char>&, const std::pair<int, int>&);
 
-void draw_snake(const std::list<std::pair<int, int>>&, std::map<std::pair<int, int>, char>&);
+void drawSnake(const std::list<std::pair<int, int>>&, std::map<std::pair<int, int>, char>&);
 
-void redraw_scr(std::map<std::pair<int, int>, char>&, const std::map<std::pair<int, int>, char>&);
+void redrawScreen(std::map<std::pair<int, int>, char>&, const std::map<std::pair<int, int>, char>&);
 
-const std::pair<int,int> spawn_eat(const std::map<std::pair<int, int>, char>&, std::map<std::pair<int, int>, char>&, const std::pair<int, int>&, bool&);
+const std::pair<int,int> spawnEat(const std::map<std::pair<int, int>, char>&, std::map<std::pair<int, int>, char>&, const std::pair<int, int>&, bool&);
 
 
 
