@@ -1,4 +1,5 @@
 #include "../headers/snake.h"
+#include "../Const.h"
 
 namespace {
 	std::pair<int, int> operator+(std::pair<int, int> a, std::pair<int, int> b) { return std::pair<int, int>(a.first + b.first, a.second + b.second); }
@@ -30,15 +31,15 @@ const std::list<std::pair<int, int>> Snake::move(int check) {
 }
 
 const int Snake::check(const std::map<std::pair<int, int>, char>& field) const  {
-	return field.at(*body.begin() + direction) == ' ' ? 1 : field.at(*body.begin() + direction) == 'E' ? 2 : 0;
+	return field.at(*body.begin() + direction) == free_space_char ? 1 : field.at(*body.begin() + direction) == eat_char ? 2 : 0;
 }
 
 void Snake::change_direction() {
 	enum {
-		Left = 75,
-		Up = 72,
-		Right = 77,
-		Down = 80
+		Left = non_portable::Left,
+		Up = non_portable::Up,
+		Right = non_portable::Right,
+		Down = non_portable::Down
 	} Directions;
 
 	int c = getChar();

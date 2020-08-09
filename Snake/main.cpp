@@ -1,8 +1,7 @@
 
 #include "headers\functions.h"
 #include "headers\snake.h"
-
-#include <iostream>
+#include "Const.h"
 
 
 
@@ -25,7 +24,7 @@ int main() {
 		auto pos = spawn_eat(*field, copy_field, field_size, is_exist);
 
 		if (s.check(*field) == 2) {
-			copy_field[pos] = ' ';
+			copy_field[pos] = free_space_char;
 			is_exist = 0;
 		}
 		mySleep(100);
@@ -40,9 +39,10 @@ int main() {
 			if (tmp.first == field_size.first ||
 				tmp.first == 0 ||
 				tmp.second == field_size.second ||
-				tmp.second == 0) {}
+				tmp.second == 0) {
+			}
 			else
-				check = s.check(*field);
+				s.change_direction();
 		}
 	}
 
