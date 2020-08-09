@@ -1,8 +1,11 @@
 #include "../../../headers/non-portable.h"
 
-int getChar() {
+int 
+getChar() {
 	if (_kbhit()) {
-		if (_getch() == 224)
+		auto code = _getch();
+		if (code == 224)
 			return _getch();
+		else return code;
 	}
 }

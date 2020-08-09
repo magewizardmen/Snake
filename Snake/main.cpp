@@ -7,10 +7,10 @@
 
 int main() {
 
-	const std::pair<int, int> FIELD_SIZE(30,30); //first == height
+	const FieldSize FIELD_SIZE(30,30); //first == height
 
-	const int delayTime = 100;
-	const int delayBeforeExit = 1000;
+	const int DELAY_TIME = 100;
+	const int DELAY_BEFORE_EXIT = 1000;
 
 	Snake snake;
 
@@ -30,7 +30,7 @@ int main() {
 			fieldCopy[pos] = FREE_SPACE_CHAR;
 			isExist = 0;
 		}
-		mySleep(delayTime);
+		mySleep(DELAY_TIME);
 		snake.move(snake.checkCollisions(*field));
 		drawSnake(snake.getBody(), *field);
 
@@ -49,6 +49,6 @@ int main() {
 		}
 	}
 
-	mySleep(delayBeforeExit);
+	mySleep(DELAY_BEFORE_EXIT);
 	return 0;
 }

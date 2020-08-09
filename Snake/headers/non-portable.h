@@ -2,6 +2,11 @@
 #ifndef NON_PORTABLE_H
 #define NON_PORTABLE_H
 
+#include <utility>
+
+#include "../const.h"
+
+
 #ifdef _WIN32||_WIN64||WINDOWS
 
 #include <Windows.h>
@@ -17,12 +22,17 @@
 #endif
 
 
+typedef std::pair<int, int> Position;
 
-void setCarriagePos(int, int);
 
-void mySleep(int);
+void 
+setCarriagePos(const Position&);
 
-int getChar();
+void 
+mySleep(int);
+
+int 
+getChar();
 
 
 

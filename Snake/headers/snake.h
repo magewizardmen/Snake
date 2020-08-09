@@ -7,21 +7,41 @@
 
 #include "functions.h"
 
+
+
+
+typedef std::map<std::pair<int, int>, char> Field;
+typedef std::pair<int, int> FieldSize;
+typedef std::pair<int, int> Position;
+typedef std::list<std::pair<int, int>> SnakeBody;
+typedef std::pair<int, int> Direction;
+
+
+
 class Snake {
-	std::list<std::pair<int, int>> body;
-	std::pair<int, int> direction;
-
-
 public:
-	explicit Snake(int x = 1, int y = 1, std::pair<int, int> direction = std::pair<int, int>(1, 0));
 
-	const std::list<std::pair<int, int>> move(int);
+	explicit Snake(const Position& = Position(1, 1), Direction direction = Direction(1, 0));
 
-	const int checkCollisions(const std::map<std::pair<int, int>, char>&) const;
 
-	const std::list<std::pair<int, int>> getBody() const;
 
-	void changeDirection();
+	const SnakeBody 
+		move(int);
+
+	const int 
+		checkCollisions(const Field&) const;
+
+	const SnakeBody 
+		getBody() const;
+
+	void 
+		changeDirection();
+
+private:
+
+	SnakeBody body;
+	Direction direction;
+
 
 };
 

@@ -10,24 +10,41 @@
 
 #include"non-portable.h"
 
-std::unique_ptr<std::map<std::pair<int, int>, char>> createField(const std::pair<int, int>&);
 
-void writeField(const std::map<std::pair<int, int>, char>&, const std::pair<int, int>&);
+typedef std::map<Position, char> Field;
+typedef std::pair<std::pair<int, int>, char> FieldCell;
+typedef std::pair<int, int> Position;
+typedef std::pair<int, int> FieldSize;
+typedef std::list<std::pair<int, int>> SnakeBody;
 
-void drawSnake(const std::list<std::pair<int, int>>&, std::map<std::pair<int, int>, char>&);
 
-void redrawScreen(std::map<std::pair<int, int>, char>&, const std::map<std::pair<int, int>, char>&);
 
-const std::pair<int,int> spawnEat(const std::map<std::pair<int, int>, char>&, std::map<std::pair<int, int>, char>&, const std::pair<int, int>&, bool&);
+std::unique_ptr<Field> 
+createField(const FieldSize&);
+
+void 
+writeField(const Field&, const FieldSize&);
+
+void 
+drawSnake(const SnakeBody&, Field&);
+
+void 
+redrawScreen(Field&, const Field&);
+
+const Position
+spawnEat(const Field&, Field&, const FieldSize&, bool&);
 
 
 
 //NON-PORTABLES
 
-void setCarriagePos(int, int);
+void 
+setCarriagePos(const Position&);
 
-void mySleep(int);
+void 
+mySleep(int);
 
-int getChar();
+int 
+getChar();
 
 #endif
