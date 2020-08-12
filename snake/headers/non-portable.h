@@ -7,7 +7,7 @@
 #include "../const.h"
 
 
-#ifdef WINDOWS||_WIN32||_WIN64||_Windows||Windows||_WINDOWS||_WIN32_||_WIN64_||WIN32||WIN64||_Windows_||_WINDOWS_
+#if defined(WINDOWS)|| defined(_WIN32) || defined(_WIN64) || defined(_Windows) || defined(Windows) || defined(_WINDOWS) || defined(_WIN32_) || defined(_WIN64_) || defined(WIN32) || defined(WIN64) || defined(_Windows_) || defined(_WINDOWS_)
 
 #include <Windows.h>
 #include <conio.h>
