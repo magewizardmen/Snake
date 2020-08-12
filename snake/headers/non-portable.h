@@ -7,7 +7,7 @@
 #include "../const.h"
 
 
-#ifdef _WIN32||_WIN64||WINDOWS
+#ifdef WINDOWS||_WIN32||_WIN64||_Windows||Windows||_WINDOWS||_WIN32_||_WIN64_||WIN32||WIN64||_Windows_||_WINDOWS_
 
 #include <Windows.h>
 #include <conio.h>
@@ -18,7 +18,7 @@
 
 #include <unistd.h>
 #include <termios.h>
-#include <iostream>
+#include <fcntl.h>
 
 
 #endif
